@@ -7,6 +7,8 @@ void delay_us(uint16_t Delay)
   TIM7->ARR = Delay;
   TIM7->EGR |= TIM_EGR_UG;
   TIM7->CR1 |= TIM_CR1_CEN | TIM_CR1_OPM;
+  
+  // Эта строчка появилась
   while(TIM7->CR1&TIM_CR1_CEN != 0);
   
 }
